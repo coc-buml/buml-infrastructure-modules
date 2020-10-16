@@ -85,4 +85,13 @@ module "knative_monitoring" {
   resource_group_name = azurerm_resource_group.aks.name
 }
 
+# Knative monitoring 
+module "knative_cert_manager" {
+  source       = "../modules/knative-cert-manager"
+  cluster_name = var.cluster_name
+  cert_manager_version = var.knative_monitoring_version
+  resource_group_name = azurerm_resource_group.aks.name
+}
+
+
 

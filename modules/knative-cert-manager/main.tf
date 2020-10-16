@@ -26,16 +26,15 @@ resource "null_resource" "knative_monitoring" {
 
   # Install the Custom Resource Definitions (aka CRDs):
     provisioner "local-exec" {
-    command = "kubectl apply --filename https://github.com/knative/serving/releases/download/v${var.knative_monitoring_version}/monitoring-core.yaml"
+    command = "kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v${var.cert_manager_version}/cert-manager.yaml"
   }                                    
 
 
   # Install Prometheus and Grafana for metrics:
 
     provisioner "local-exec" {
-      command = "kubectl apply --filename https://github.com/knative/serving/releases/download/v${var.knative_monitoring_version}/monitoring-metrics-prometheus.yaml"
+      command = "kubectl get pods --namespace cert-manager"
   }
  
-# https://knative.dev/docs/serving/installing-logging-metrics-traces/
 
 }
