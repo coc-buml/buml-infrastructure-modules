@@ -42,7 +42,7 @@ resource "null_resource" "knative_serving" {
    provisioner "local-exec" {
       # command =  "curl -sL https://istio.io/downloadIstioctl | sh - ; export PATH=$PATH:$HOME/.istioctl/bin"
       # command =  "curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh - ; export PATH=$PATH:$HOME/.istioctl/bin"
-      command =  "curl -L https://istio.io/downloadIstioctl | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh - ; export PATH=$PATH:$HOME/.istioctl/bin"
+      command =  "curl -L https://istio.io/downloadIstioctl | ISTIO_VERSION=1.6.12 TARGET_ARCH=x86_64 sh - ; export PATH=$PATH:$HOME/.istioctl/bin"
   }
 
         
@@ -79,6 +79,30 @@ resource "null_resource" "knative_serving" {
     provisioner "local-exec" {
       command = "kubectl patch configmap/config-domain  --namespace knative-serving --type merge  --patch '{\"data\":{\"${var.custom_domain_name}\":\"\"}}'"
   }
+
+  #Knative supports automatically provisioning TLS certificates using Let’s Encrypt HTTP01 
+  #challenges. The following commands will install the components needed to support that.
+  #First, install the net-http01 controller:
+
+  provisioner "local-exec" {
+      command = "kubectl apply --filename https://github.com/knative/net-http01/releases/download/v0.18.0/release.yaml"
+  }
+
+#  Next, configure the certificate.class to use this certificate type.
+
+  provisioner "local-exec" {
+      command = "kubectl patch configmap/config-network --namespace knative-serving --type merge --patch '{\"data\":{\"certificate.class\":\"net-http01.certificate.networking.knative.dev\"}}'"
+  }
+
+# lastly enable auto-tls
+
+  provisioner "local-exec" {
+      command = "kubectl patch configmap/config-network --namespace knative-serving --type merge --patch '{\"data\":{\"autoTLS\":\"Enabled\"}}'"
+  }
+
+
+
+
 
 
   #####################################################################

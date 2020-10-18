@@ -96,9 +96,9 @@ variable knative_monitoring_version {
 }
 
 
-variable cert_manager_version {
-  description = "Version of cert manager which will be installed"
-}
+# variable cert_manager_version {
+#   description = "Version of cert manager which will be installed"
+# }
 
 
 

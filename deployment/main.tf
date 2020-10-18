@@ -61,6 +61,7 @@ module "aks_cluster" {
 
 # Knative Serving 
 module "knative_serving" {
+  depends_on   = [azurerm_resource_group.aks]
   source       = "../modules/knative-serving"
   cluster_name = var.cluster_name
   knative_serving_version = var.knative_serving_version
@@ -70,6 +71,7 @@ module "knative_serving" {
 
 # Knative eventing 
 module "knative_eventing" {
+  depends_on   = [azurerm_resource_group.aks]
   source       = "../modules/knative-eventing"
   cluster_name = var.cluster_name
   knative_eventing_version = var.knative_eventing_version
@@ -79,6 +81,7 @@ module "knative_eventing" {
 
 # Knative monitoring 
 module "knative_monitoring" {
+  depends_on   = [azurerm_resource_group.aks]
   source       = "../modules/knative-monitoring"
   cluster_name = var.cluster_name
   knative_monitoring_version = var.knative_monitoring_version
@@ -86,12 +89,14 @@ module "knative_monitoring" {
 }
 
 # Knative monitoring 
-module "knative_cert_manager" {
-  source       = "../modules/knative-cert-manager"
-  cluster_name = var.cluster_name
-  cert_manager_version = var.knative_monitoring_version
-  resource_group_name = azurerm_resource_group.aks.name
-}
+# module "knative_cert_manager" {
+#   depends_on   = [azurerm_resource_group.aks]
+#   source       = "../modules/knative-cert-manager"
+#   cluster_name = var.cluster_name
+#   cert_manager_version = var.knative_monitoring_version
+#   knative_serving_version = var.knative_serving_version
+#   resource_group_name = azurerm_resource_group.aks.name
+# }
 
 
 
