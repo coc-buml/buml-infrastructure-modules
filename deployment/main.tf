@@ -26,13 +26,13 @@ module "aks_identities" {
 
 # AKS Log Analytics
 
-module "log_analytics" {
-  source                           = "../modules/log_analytics"
-  resource_group_name              = azurerm_resource_group.aks.name
-  log_analytics_workspace_location = var.location
-  log_analytics_workspace_name     = var.log_analytics_workspace_name
-  log_analytics_workspace_sku      = var.log_analytics_workspace_sku
-}
+# module "log_analytics" {
+#   source                           = "../modules/log_analytics"
+#   resource_group_name              = azurerm_resource_group.aks.name
+#   log_analytics_workspace_location = var.location
+#   log_analytics_workspace_name     = var.log_analytics_workspace_name
+#   log_analytics_workspace_sku      = var.log_analytics_workspace_sku
+# }
 
 
 # AKS Cluster
@@ -61,7 +61,7 @@ module "aks_cluster" {
 
 # Knative Serving 
 module "knative_serving" {
-  depends_on   = [azurerm_resource_group.aks]
+  depends_on = [module.aks_cluster]
   source       = "../modules/knative-serving"
   cluster_name = var.cluster_name
   knative_serving_version = var.knative_serving_version
@@ -71,7 +71,7 @@ module "knative_serving" {
 
 # Knative eventing 
 module "knative_eventing" {
-  depends_on   = [azurerm_resource_group.aks]
+  depends_on = [module.knative_serving]
   source       = "../modules/knative-eventing"
   cluster_name = var.cluster_name
   knative_eventing_version = var.knative_eventing_version
@@ -81,7 +81,7 @@ module "knative_eventing" {
 
 # Knative monitoring 
 module "knative_monitoring" {
-  depends_on   = [azurerm_resource_group.aks]
+  depends_on = [module.knative_eventing]
   source       = "../modules/knative-monitoring"
   cluster_name = var.cluster_name
   knative_monitoring_version = var.knative_monitoring_version

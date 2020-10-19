@@ -35,7 +35,28 @@ resource "null_resource" "knative_monitoring" {
     provisioner "local-exec" {
       command = "kubectl apply --filename https://github.com/knative/serving/releases/download/v${var.knative_monitoring_version}/monitoring-metrics-prometheus.yaml"
   }
+
+    # Run the following command and follow the instructions below to enable request logs if they are wanted:
+
+    provisioner "local-exec" {
+      command = "kubectl apply -f - ${var.config_observability}"
+  }
+
+    #Run the following command to install an ELK stack:
+ 
+      provisioner "local-exec" {
+      command = "kubectl apply --filename https://github.com/knative/serving/releases/download/v${var.knative_monitoring_version}/monitoring-logs-elasticsearch.yaml"
+  }
+
+     #Run the following command to ensure that the Fluentd DaemonSet runs on all your nodes:
+ 
+      provisioner "local-exec" {
+      command = "kubectl label nodes --all beta.kubernetes.io/fluentd-ds-ready=\"true\""
+  }
+ 
+
  
 # https://knative.dev/docs/serving/installing-logging-metrics-traces/
 
 }
+
