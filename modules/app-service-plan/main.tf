@@ -1,12 +1,12 @@
 resource "azurerm_app_service_plan" "service_plan" {
   name                = var.service_plan_name
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = var.storage_account_name
+  resource_group_name = var.resource_group_name
   kind                = "Linux"
-  reserved            = true
-
+  tags                = var.tags
+  
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier = "Premium"
+    size = "P1V2"
   }
 }
