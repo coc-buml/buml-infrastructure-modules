@@ -1,19 +1,43 @@
 # Cluster Resource Group
 
-resource "azurerm_resource_group" "aks" {
-  name     = var.resource_group_name
+module "naming" {
+  source  = "Azure/naming/azurerm"
+  prefix = [ "buml","dev" ]
+}
+
+
+resource "azurerm_resource_group" "main" {
+  name     = module.naming.resource_group.name
   location = var.location
 }
 
 # VNET
 module "network" {
-  depends_on = [azurerm_resource_group.example]
+  depends_on          = [azurerm_resource_group.main]
   source              = "../modules/vnet"
-  resource_group_name = var.resource_group_name
-  location             = var.location
+  vnet_name           = module.naming.virtual_network.name
+  resource_group_name = module.naming.resource_group.name
+  location            = var.location
   address_space       = "10.0.0.0/16"
   subnet_prefixes     = ["10.0.0.0/24"]
-  subnet_names        = ["subnet1"]
+  subnet_names        = ["main1"]
+  service_endpoints   = ["Microsoft.Storage"]
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+
+# Static Website
+module "static_website" {
+  depends_on              = [module.network]
+  source                  = "../modules/static-website"
+  storage_account_name    = module.naming.storage_account.name_unique
+  resource_group_name     = module.naming.resource_group.name
+  location                = var.location
+  subnet_id               = module.network.vnet_subnets[0]
+  static_ip               = ["213.32.231.63"]
 
   tags = {
     environment = "dev"

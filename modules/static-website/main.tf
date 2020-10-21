@@ -9,7 +9,7 @@ resource "azurerm_storage_account" "static_website" {
 
   network_rules {
     default_action             = "Deny"
-    ip_rules                   = [var.static_ip]
+    ip_rules                   = var.static_ip
     virtual_network_subnet_ids = [var.subnet_id]
   }
 

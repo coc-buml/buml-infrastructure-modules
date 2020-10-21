@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  description = "Name of the azure resource group"
+  description = "The name of an existing resource group to be imported."
   type        = string
 }
 
@@ -14,10 +14,6 @@ variable "vnet_name" {
   type        = string
 }
 
-variable "resource_group_name" {
-  description = "The name of an existing resource group to be imported."
-  type        = string
-}
 
 variable "address_space" {
   description = "The address space that is used by the virtual network."
@@ -51,3 +47,9 @@ variable "tags" {
   #   environment = "dev"
   # }
 }
+
+variable "service_endpoints" {
+  description = "A list of public service endpoints inside the subnet."
+  type        = list(string)
+}
+

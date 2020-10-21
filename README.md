@@ -10,7 +10,7 @@
 
 ## Ressources
 
-- [public azure terraform module list](https://registry.terraform.io/search/modules?namespace=Azure)
+- [public azure terraform module list](https://registry.terraform.io/search/modules)
 
 ## Externalen Modules
 

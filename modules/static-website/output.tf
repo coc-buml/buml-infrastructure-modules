@@ -1,24 +1,10 @@
-output "vnet_id" {
-  description = "The id of the newly created vNet"
-  value       = azurerm_virtual_network.vnet.id
+output "primary_web_endpoint" {
+  description = "The endpoint URL for web storage in the primary location."
+  value       = azurerm_storage_account.static_website.primary_web_endpoint
 }
 
-output "vnet_name" {
-  description = "The Name of the newly created vNet"
-  value       = azurerm_virtual_network.vnet.name
+output "primary_web_host" {
+  description = "The hostname with port if applicable for web storage in the primary location."
+  value       = azurerm_storage_account.static_website.primary_web_host
 }
 
-output "vnet_location" {
-  description = "The location of the newly created vNet"
-  value       = azurerm_virtual_network.vnet.location
-}
-
-output "vnet_address_space" {
-  description = "The address space of the newly created vNet"
-  value       = azurerm_virtual_network.vnet.address_space
-}
-
-output "vnet_subnets" {
-  description = "The ids of subnets created inside the newl vNet"
-  value       = azurerm_subnet.subnet.*.id
-}
