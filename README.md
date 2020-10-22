@@ -8,6 +8,16 @@
 |         |                    |     |
 |         |                    |     |
 
+# Generate Documentation
+
+```bash
+docker run --rm -v $(pwd):/data cytopia/terraform-docs terraform-docs md . > README.md
+```
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Ressources
 
 - [public azure terraform module list](https://registry.terraform.io/search/modules)
