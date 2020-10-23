@@ -96,19 +96,20 @@ module "application_insight" {
 
 # Azure function 
 module "azure_function" {
-  depends_on                 = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan,module.application_insight]
-  source                     = "../modules/functions_app"
-  function_app_name          = "bumldevfunctionsproxy"
-  location                   = var.location
-  resource_group_name        = module.naming.resource_group.name
-  app_service_plan_id        = module.app_service_plan.service_plan_id
-  storage_account_name       = module.storage_account_function.storage_account_name
-  storage_primary_access_key = module.storage_account_function.storage_primary_access_key
-  linux_fx_version           = "Python|3.8"
-  functions_worker_runtime   = "python"
-  insight_instrumentation_key= module.application_insight.insight_instrumentation_key
-  subnet_id               = module.network.vnet_subnets[0]
-  static_ip               = ["213.32.231.63"]
+  depends_on                  = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan,module.application_insight]
+  source                      = "../modules/functions_app"
+  function_app_name           = "bumldevfunctionsproxy"
+  location                    = var.location
+  resource_group_name         = module.naming.resource_group.name
+  app_service_plan_id         = module.app_service_plan.service_plan_id
+  storage_account_name        = module.storage_account_function.storage_account_name
+  storage_primary_access_key  = module.storage_account_function.storage_primary_access_key
+  linux_fx_version            = "Python|3.8"
+  functions_worker_runtime    = "python"
+  insight_instrumentation_key = module.application_insight.insight_instrumentation_key
+  subnet_id                   = module.network.vnet_subnets[0]
+  static_ip                   = "213.32.231.63"
+  
   tags = {
     environment = "dev"
     costcenter  = "it"

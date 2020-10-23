@@ -27,7 +27,7 @@ variable "subnet_id" {
 
 variable "static_ip" {
   description = "A list of static ip address to access the bucket"
-  type        = string
+  type        = list(string)
 }
 
 

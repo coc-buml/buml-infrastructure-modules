@@ -9,14 +9,14 @@ resource "azurerm_function_app" "core" {
   os_type                    = "linux"
   https_only                 = true
 
-  ip_restriction {
-    ip_rules                   = var.static_ip
-    virtual_network_subnet_id  = var.subnet_id
-  }
 
   site_config {
     linux_fx_version = var.linux_fx_version
     use_32_bit_worker_process = false
+   
+    ip_restriction {
+    virtual_network_subnet_id    = var.subnet_id
+  }
   }
 
   identity {
@@ -27,5 +27,7 @@ resource "azurerm_function_app" "core" {
     FUNCTIONS_WORKER_RUNTIME = var.functions_worker_runtime
 		APPINSIGHTS_INSTRUMENTATIONKEY = var.insight_instrumentation_key
   }
+
+
   
 }
