@@ -24,5 +24,4 @@ resource "azurerm_function_app" "core" {
 		APPINSIGHTS_INSTRUMENTATIONKEY = var.insight_instrumentation_key
   }
   
-  
 }
