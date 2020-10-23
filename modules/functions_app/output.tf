@@ -1,3 +1,4 @@
-output "aks_subnet_id" {
-  value = azurerm_subnet.aks_subnet.id
+output "function_hostname" {
+  description = "The default hostname associated with the Function App - such as `mysite.azurewebsites.net`"
+  value = azurerm_function_app.core.default_hostname
 }

@@ -13,6 +13,12 @@ variable "storage_account_name" {
   type        = string
 }
 
+variable "storage_primary_access_key" {
+  description = "Primary Access Key of the storage account where function.zip will be uploaded"
+  type        = string
+}
+
+
 variable "linux_fx_version" {
   description = "Linux App Framework and version for the AppService PYTHON|3.8, NODE|12"
   type        = string

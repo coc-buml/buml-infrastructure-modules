@@ -22,4 +22,7 @@ resource "azurerm_function_app" "core" {
   app_settings = {
     FUNCTIONS_WORKER_RUNTIME = var.functions_worker_runtime
 		APPINSIGHTS_INSTRUMENTATIONKEY = var.insight_instrumentation_key
-  }}
+  }
+  
+  
+}

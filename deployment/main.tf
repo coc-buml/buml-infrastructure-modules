@@ -77,19 +77,34 @@ module "storage_account_function" {
 }
 
 
+# Application insight module
+module "application_insight" {
+  depends_on              = [azurerm_resource_group.main]
+  source                  = "../modules/application-insight"
+  insight_name            = "bumldevinsightfuncproxy"
+  resource_group_name     = module.naming.resource_group.name
+  location                = var.location
+  application_type        = "other"
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+
 # Azure function 
 module "azure_function" {
-  depends_on              = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan]
-  source                  = "../modules/functions_app"
-  name                       = "bumldevfunctionsproxy"
+  depends_on                 = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan,module.application_insight]
+  source                     = "../modules/functions_app"
+  function_app_name          = "bumldevfunctionsproxy"
   location                   = var.location
-  resource_group_name        = var.resource_group_name
+  resource_group_name        = module.naming.resource_group.name
   app_service_plan_id        = module.app_service_plan.service_plan_id
   storage_account_name       = module.storage_account_function.storage_account_name
-  storage_account_access_key = module.storage_account_function.storage_primary_access_key
+  storage_primary_access_key = module.storage_account_function.storage_primary_access_key
   linux_fx_version           = "Python|3.8"
   functions_worker_runtime   = "python"
-  #insight_instrumentation_key = module.application_insight.insight_instrumentation_key
+  insight_instrumentation_key= module.application_insight.insight_instrumentation_key
   tags = {
     environment = "dev"
     costcenter  = "it"
