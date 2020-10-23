@@ -8,10 +8,7 @@ variable "location" {
   type        = string
 }
 
-variable "subnet_id" {
-  description = "subnet_id of the subnet in which the satic website will be placed"
-  type        = string
-}
+
 
 variable "storage_account_name" {
   description = "Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
@@ -23,11 +20,14 @@ variable "storage_container_name" {
   type        = string
 }
 
-
+variable "subnet_id" {
+  description = "subnet_id of the subnet in which the satic website will be placed"
+  type        = string
+}
 
 variable "static_ip" {
   description = "A list of static ip address to access the bucket"
-  type        = list(string)
+  type        = string
 }
 
 

@@ -53,3 +53,13 @@ variable "tags" {
   #   environment = "dev"
   # }
 }
+
+variable "subnet_id" {
+  description = "subnet_id of the subnet in which the satic website will be placed"
+  type        = string
+}
+
+variable "static_ip" {
+  description = "A list of static ip address to access the bucket"
+  type        = string
+}

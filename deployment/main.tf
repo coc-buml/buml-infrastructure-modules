@@ -33,7 +33,7 @@ module "network" {
 module "static_website" {
   depends_on              = [module.network]
   source                  = "../modules/static-website"
-  storage_account_name    = module.naming.storage_account.name_unique
+  storage_account_name    = "bumldevangularapp"
   resource_group_name     = module.naming.resource_group.name
   location                = var.location
   subnet_id               = module.network.vnet_subnets[0]
@@ -50,7 +50,7 @@ module "static_website" {
 module "app_service_plan" {
   depends_on              = [azurerm_resource_group.main]
   source                  = "../modules/app-service-plan"
-  service_plan_name       = "buml-dev-application-sp"
+  service_plan_name       = "buml-dev-applications-sp"
   resource_group_name     = module.naming.resource_group.name
   location                = var.location
   tags = {
@@ -64,7 +64,7 @@ module "storage_account_function" {
   depends_on              = [azurerm_resource_group.main]
   source                  = "../modules/storage-account"
   storage_account_name    = "bumldevfunctionstorage"
-  storage_container_name  = module.naming.storage_container.name_unique
+  storage_container_name  = "function-releases"
   resource_group_name     = module.naming.resource_group.name
   location                = var.location
   subnet_id               = module.network.vnet_subnets[0]
@@ -75,6 +75,8 @@ module "storage_account_function" {
   }
 
 }
+
+
 
 
 # Application insight module
@@ -105,6 +107,8 @@ module "azure_function" {
   linux_fx_version           = "Python|3.8"
   functions_worker_runtime   = "python"
   insight_instrumentation_key= module.application_insight.insight_instrumentation_key
+  subnet_id               = module.network.vnet_subnets[0]
+  static_ip               = ["213.32.231.63"]
   tags = {
     environment = "dev"
     costcenter  = "it"

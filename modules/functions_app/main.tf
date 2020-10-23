@@ -9,6 +9,10 @@ resource "azurerm_function_app" "core" {
   os_type                    = "linux"
   https_only                 = true
 
+  ip_restriction {
+    ip_rules                   = var.static_ip
+    virtual_network_subnet_id  = var.subnet_id
+  }
 
   site_config {
     linux_fx_version = var.linux_fx_version
