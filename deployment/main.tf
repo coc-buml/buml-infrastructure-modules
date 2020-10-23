@@ -107,8 +107,8 @@ module "azure_function" {
   linux_fx_version            = "Python|3.8"
   functions_worker_runtime    = "python"
   insight_instrumentation_key = module.application_insight.insight_instrumentation_key
-  subnet_id                   = module.network.vnet_subnets[0]
-  static_ip                   = "213.32.231.63"
+  vnet_name                   = module.network.vnet_name
+  subnet_name                 = module.network.vnet_subnets_name[0]
   
   tags = {
     environment = "dev"

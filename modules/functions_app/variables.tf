@@ -54,12 +54,12 @@ variable "tags" {
   # }
 }
 
-variable "subnet_id" {
-  description = "subnet_id of the subnet in which the satic website will be placed"
+variable "subnet_name" {
+  description = "The name of subnets"
   type        = string
 }
 
-variable "static_ip" {
-  description = "A list of static ip address to access the bucket"
+variable "vnet_name" {
+  description = "The name of vnet created"
   type        = string
 }
