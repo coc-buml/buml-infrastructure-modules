@@ -2,21 +2,22 @@
 
 # Modules included
 
-| Service | Module-URL         | Ref |
-| ------- | ------------------ | --- |
-| VNET    | `'github.com....'` |     |
-|         |                    |     |
-|         |                    |     |
+| Service          | Documentation                    | Module-URL         |
+| ---------------- | -------------------------------- | ------------------ |
+| VNET             | [vnet](./modules/vnet/readme.md) | `'github.com....'` |
+| App Service Plan |                                  |                    |
+|                  |                                  |                    |
+|                  |                                  |                    |
+|                  |                                  |                    |
+|                  |                                  |                    |
+|                  |                                  |                    |
+|                  |                                  |                    |
 
 # Generate Documentation
 
 ```bash
 docker run --rm -v $(pwd):/data cytopia/terraform-docs terraform-docs md . > README.md
 ```
-
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Ressources
 
