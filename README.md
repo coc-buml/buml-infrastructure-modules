@@ -2,16 +2,14 @@
 
 # Modules included
 
-| Service          | Documentation                    | Module-URL         |
-| ---------------- | -------------------------------- | ------------------ |
-| VNET             | [vnet](./modules/vnet/readme.md) | `'github.com....'` |
-| App Service Plan |                                  |                    |
-|                  |                                  |                    |
-|                  |                                  |                    |
-|                  |                                  |                    |
-|                  |                                  |                    |
-|                  |                                  |                    |
-|                  |                                  |                    |
+| Service             | Documentation                                   | Module-URL         |
+| ------------------- | ----------------------------------------------- | ------------------ |
+| VNET                | [vnet](./modules/vnet/README.md)                | `'github.com....'` |
+| App Service Plan    | [vnet](./modules/app-service-plan/README.md)    | `'github.com....'` |
+| application-insight | [vnet](./modules/application-insight/README.md) | `'github.com....'` |
+| function_app        | [vnet](./modules/function_app/README.md)        | `'github.com....'` |
+| static-website      | [vnet](./modules/static-website/README.md)      | `'github.com....'` |
+| storage-account     | [vnet](./modules/storage-account/README.md)     | `'github.com....'` |
 
 # Generate Documentation
 
@@ -31,10 +29,8 @@ docker run --rm -v $(pwd):/data cytopia/terraform-docs terraform-docs md . > REA
 
 ## Getting started
 
-- Set up Azure storage to store Terraform state
-- Create the Kubernetes cluster
-
 ```
+cd deployment
 terraform init
 terraform validate
 terraform plan
