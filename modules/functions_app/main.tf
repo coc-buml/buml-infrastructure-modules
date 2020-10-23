@@ -30,7 +30,7 @@ resource "azurerm_function_app" "core" {
   
 }
 
-resource "null_resource" "add_vnet" {
+resource "null_resource" "add_vnet" {x
   depends_on              = [azurerm_function_app.core]
 
   provisioner "local-exec" {
