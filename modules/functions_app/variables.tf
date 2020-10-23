@@ -1,11 +1,39 @@
-variable "service_plan_name" {
-  description = "name to give the service-plan"
+variable "function_app_name" {
+  description = "Specifies the name of the Function App. Changing this forces a new resource to be created."
+  type        = string
 }
 
 variable "resource_group_name" {
-  description = "Name of the azure resource group"
+  description = "The name of the resource group in which to create the Function App."
   type        = string
 }
+
+variable "storage_account_name" {
+  description = "Name of the storage account where function.zip will be uploaded"
+  type        = string
+}
+
+variable "linux_fx_version" {
+  description = "Linux App Framework and version for the AppService PYTHON|3.8, NODE|12"
+  type        = string
+}
+
+variable "functions_worker_runtime" {
+  description = "Runtime of the functions e.g. python, node"
+  type        = string
+}
+variable "insight_instrumentation_key" {
+  description = "The application insight instrumentation key for the Function"
+  type        = string
+}
+
+
+
+variable "app_service_plan_id" {
+  description = "Id of the used service plan of the azure group"
+  type        = string
+}
+
 
 variable "location" {
   description = "location of the service"

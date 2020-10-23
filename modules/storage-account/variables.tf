@@ -1,10 +1,10 @@
 variable "resource_group_name" {
-  description = "Name of the azure resource group"
+  description = "The name of the resource group in which to create the storage account. Changing this forces a new resource to be created."
   type        = string
 }
 
 variable "location" {
-  description = "location of the service"
+  description = "Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created."
   type        = string
 }
 
@@ -14,7 +14,7 @@ variable "subnet_id" {
 }
 
 variable "storage_account_name" {
-  description = "Name of the storage to create."
+  description = "Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group."
   type        = string
 }
 

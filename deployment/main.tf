@@ -59,7 +59,7 @@ module "app_service_plan" {
   }
 
 }
-# Storage Container
+# Storage Container for functions
 module "storage_account_function" {
   depends_on              = [azurerm_resource_group.main]
   source                  = "../modules/storage-account"
@@ -75,3 +75,30 @@ module "storage_account_function" {
   }
 
 }
+
+
+# Azure function 
+module "azure_function" {
+  depends_on              = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan]
+  source                  = "../modules/functions_app"
+  name                       = "bumldevfunctionsproxy"
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+  app_service_plan_id        = module.app_service_plan.service_plan_id
+  storage_account_name       = module.storage_account_function.storage_account_name
+  storage_account_access_key = module.storage_account_function.storage_primary_access_key
+  linux_fx_version           = "Python|3.8"
+  functions_worker_runtime   = "python"
+  #insight_instrumentation_key = module.application_insight.insight_instrumentation_key
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+
+
+
+
+
+
