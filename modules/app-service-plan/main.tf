@@ -6,7 +6,7 @@ resource "azurerm_app_service_plan" "service_plan" {
   tags                = var.tags
   reserved            = true
   sku {
-    tier = "Premium"
+    tier = "ElasticPremium"
     size = "EP1"
   }
 }
