@@ -11,7 +11,7 @@ resource "azurerm_function_app" "core" {
 
 
   site_config {
-    #linux_fx_version = var.linux_fx_version
+    linux_fx_version = var.linux_fx_version
     use_32_bit_worker_process = false
   }
 
