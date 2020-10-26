@@ -13,10 +13,6 @@ resource "azurerm_function_app" "core" {
   site_config {
     linux_fx_version = var.linux_fx_version
     use_32_bit_worker_process = false
-   
-  #   ip_restriction {
-  #   virtual_network_subnet_id    = var.subnet_id
-  # }
   }
 
   identity {
@@ -30,11 +26,11 @@ resource "azurerm_function_app" "core" {
   
 }
 
-resource "null_resource" "add_vnet" {x
+resource "null_resource" "add_vnet" {
   depends_on              = [azurerm_function_app.core]
 
   provisioner "local-exec" {
-    command = "az functionapp vnet-integration add -g ${var.resource_group_name} -n ${var.function_app_name} --vnet ${var.vnet_name} --subnet MySubnetName"
+    command = "az functionapp vnet-integration add -g ${var.resource_group_name} -n ${var.function_app_name} --vnet ${var.vnet_name} --subnet ${var.subnet_name}"
   }
 }
 
