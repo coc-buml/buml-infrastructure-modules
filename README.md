@@ -4,7 +4,7 @@
 
 | Service             | Documentation                                                  | Module-URL                                                                                        |
 | ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| VNET                | [vnet](./modules/vnet/README.md)                               | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/vnet"`                |
+| VNET                | [vnet](./modules/vnet/README.md)                               | `"github.com/coc-buml/buml-infrastructure-modules/modules/vnet"`                |
 | App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `"github.com/coc-buml/buml-infrastructure-modules/modules/app-service-plan"`    |
 | application-insight | [Application Insight](./modules/application-insight/README.md) | `"github.com/coc-buml/buml-infrastructure-modules/modules/application-insight"` |
 | function-app        | [Function App](./modules/function-app/README.md)               | `"github.com/coc-buml/buml-infrastructure-modules/modules/functions-app"`       |
