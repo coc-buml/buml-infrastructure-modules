@@ -2,16 +2,18 @@
 
 # Modules included
 
-| Service             | Documentation                                   | Module-URL         |
-| ------------------- | ----------------------------------------------- | ------------------ |
-| VNET                | [vnet](./modules/vnet/README.md)                | `'github.com....'` |
-| App Service Plan    | [vnet](./modules/app-service-plan/README.md)    | `'github.com....'` |
-| application-insight | [vnet](./modules/application-insight/README.md) | `'github.com....'` |
-| function_app        | [vnet](./modules/function_app/README.md)        | `'github.com....'` |
-| static-website      | [vnet](./modules/static-website/README.md)      | `'github.com....'` |
-| storage-account     | [vnet](./modules/storage-account/README.md)     | `'github.com....'` |
+| Service             | Documentation                                                  | Module-URL                                                                                        |
+| ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| VNET                | [vnet](./modules/vnet/README.md)                               | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/vnet'`                |
+| App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/app-service-plan'`    |
+| application-insight | [Application Insight](./modules/application-insight/README.md) | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/application-insight'` |
+| function-app        | [Function App](./modules/function-app/README.md)               | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/functions_app'`       |
+| static-website      | [Static Website](./modules/static-website/README.md)           | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/static-website'`      |
+| storage-account     | [Storage Account](./modules/storage-account/README.md)         | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/storage-account'`     |
 
 # Generate Documentation
+
+befor you can run it you have to change directory into the module, where you want to generate the documentation.
 
 ```bash
 docker run --rm -v $(pwd):/data cytopia/terraform-docs terraform-docs md . > README.md
