@@ -4,12 +4,12 @@
 
 | Service             | Documentation                                                  | Module-URL                                                                                        |
 | ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| VNET                | [vnet](./modules/vnet/README.md)                               | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/vnet'`                |
-| App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/app-service-plan'`    |
-| application-insight | [Application Insight](./modules/application-insight/README.md) | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/application-insight'` |
-| function-app        | [Function App](./modules/function-app/README.md)               | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/functions_app'`       |
-| static-website      | [Static Website](./modules/static-website/README.md)           | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/static-website'`      |
-| storage-account     | [Storage Account](./modules/storage-account/README.md)         | `'https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/storage-account'`     |
+| VNET                | [vnet](./modules/vnet/README.md)                               | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/vnet"`                |
+| App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/app-service-plan"`    |
+| application-insight | [Application Insight](./modules/application-insight/README.md) | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/application-insight"` |
+| function-app        | [Function App](./modules/function-app/README.md)               | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/functions_app"`       |
+| static-website      | [Static Website](./modules/static-website/README.md)           | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/static-website"`      |
+| storage-account     | [Storage Account](./modules/storage-account/README.md)         | `"https://github.com/coc-buml/buml-infrastructure-modules/tree/main/modules/storage-account"`     |
 
 # Generate Documentation
 
