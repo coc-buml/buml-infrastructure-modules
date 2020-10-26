@@ -105,19 +105,21 @@ module "azure_function" {
   storage_account_name        = module.storage_account_function.storage_account_name
   storage_primary_access_key  = module.storage_account_function.storage_primary_access_key
   linux_fx_version            = "Python|3.8"
-  functions_worker_runtime    = "python"
-  insight_instrumentation_key = module.application_insight.insight_instrumentation_key
   vnet_name                   = module.network.vnet_name
   subnet_name                 = module.network.vnet_subnets_name[0]
   
+
+  app_settings = {
+    FUNCTIONS_WORKER_RUNTIME = "python"
+		APPINSIGHTS_INSTRUMENTATIONKEY = module.application_insight.insight_instrumentation_key
+  }
+
   tags = {
     environment = "dev"
     costcenter  = "it"
   }
 
 }
-
-
 
 
 
