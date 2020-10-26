@@ -97,7 +97,7 @@ module "application_insight" {
 # Azure function 
 module "azure_function" {
   depends_on                  = [azurerm_resource_group.main,module.storage_account_function,module.app_service_plan,module.application_insight]
-  source                      = "../modules/functions_app"
+  source                      = "../modules/functions-app"
   function_app_name           = "bumldevfunctionsproxy"
   location                    = var.location
   resource_group_name         = module.naming.resource_group.name
