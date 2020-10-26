@@ -19,10 +19,7 @@ resource "azurerm_function_app" "core" {
     type = "SystemAssigned"
   }
 
-  app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = var.functions_worker_runtime
-		APPINSIGHTS_INSTRUMENTATIONKEY = var.insight_instrumentation_key
-  }
+  app_settings = var.app_settings
   
 }
 

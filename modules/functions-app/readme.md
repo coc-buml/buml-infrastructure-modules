@@ -16,9 +16,8 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app\_service\_plan\_id | Id of the used service plan of the azure group | `string` | n/a | yes |
+| app\_settings | The appsettings to associate with your azure functions. | `map(string)` | n/a | yes |
 | function\_app\_name | Specifies the name of the Function App. Changing this forces a new resource to be created. | `string` | n/a | yes |
-| functions\_worker\_runtime | Runtime of the functions e.g. python, node | `string` | n/a | yes |
-| insight\_instrumentation\_key | The application insight instrumentation key for the Function | `string` | n/a | yes |
 | linux\_fx\_version | Linux App Framework and version for the AppService PYTHON\|3.8, NODE\|12 | `string` | n/a | yes |
 | location | location of the service | `string` | n/a | yes |
 | resource\_group\_name | The name of the resource group in which to create the Function App. | `string` | n/a | yes |

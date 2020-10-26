@@ -24,16 +24,6 @@ variable "linux_fx_version" {
   type        = string
 }
 
-variable "functions_worker_runtime" {
-  description = "Runtime of the functions e.g. python, node"
-  type        = string
-}
-variable "insight_instrumentation_key" {
-  description = "The application insight instrumentation key for the Function"
-  type        = string
-}
-
-
 
 variable "app_service_plan_id" {
   description = "Id of the used service plan of the azure group"
@@ -53,6 +43,16 @@ variable "tags" {
   #   environment = "dev"
   # }
 }
+
+variable "app_settings" {
+  description = "The appsettings to associate with your azure functions."
+  type        = map(string)
+  # default = {
+  #   environment = "dev"
+  # }
+}
+
+
 
 variable "subnet_name" {
   description = "The name of subnets"
