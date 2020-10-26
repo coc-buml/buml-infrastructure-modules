@@ -33,4 +33,5 @@
 | Name | Description |
 |------|-------------|
 | function\_hostname | The default hostname associated with the Function App - such as `mysite.azurewebsites.net` |
+| function\_name | The name of the Function App. Changing this forces a new resource to be created. |
 
