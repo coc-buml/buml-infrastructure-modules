@@ -2,8 +2,8 @@
 
 # Modules included
 
-| Service             | Documentation                                                  | Module-URL                                                                                        |
-| ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Service             | Documentation                                                  | Module-URL                                                                      |
+| ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | VNET                | [vnet](./modules/vnet/README.md)                               | `"github.com/coc-buml/buml-infrastructure-modules/modules/vnet"`                |
 | App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `"github.com/coc-buml/buml-infrastructure-modules/modules/app-service-plan"`    |
 | application-insight | [Application Insight](./modules/application-insight/README.md) | `"github.com/coc-buml/buml-infrastructure-modules/modules/application-insight"` |
@@ -17,6 +17,15 @@ befor you can run it you have to change directory into the module, where you wan
 
 ```bash
 docker run --rm -v $(pwd):/data cytopia/terraform-docs terraform-docs md . > README.md
+```
+
+**Merge Maps**
+
+```terraform
+  app_settings = merge(
+    local.default_application_settings,
+    var.function_app_application_settings,
+  )
 ```
 
 ## Ressources
