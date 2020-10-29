@@ -11,6 +11,21 @@ resource "azurerm_resource_group" "main" {
   location = var.location
 }
 
+# main log workspace 
+module "log_analytics" {
+  depends_on              = [azurerm_resource_group.main]
+  source                  = "../modules/log-analytics"
+  log_analytics_name      = "devbumllogmainanalytics"
+  resource_group_name     = module.naming.resource_group.name
+  location                = var.location
+
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+
 # VNET
 module "network" {
   depends_on          = [azurerm_resource_group.main]
@@ -23,6 +38,24 @@ module "network" {
   subnet_names        = ["main1"]
   service_endpoints   = ["Microsoft.Storage"]
   tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+# vnet audit module
+module "vnet_audit" {
+  depends_on                  = [azurerm_resource_group.main]
+  source                      = "../modules/log-analytics"
+  diagnostic_name             = "devbumlvnetaudit"
+  target_resource_id          = module.network.vnet_id
+  log_analytics_workspace_id  = module.log_analytics.log_analytics_workspace_id
+
+  log = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+  metric = {
     environment = "dev"
     costcenter  = "it"
   }
