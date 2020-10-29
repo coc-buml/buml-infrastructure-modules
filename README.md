@@ -10,6 +10,7 @@
 | function-app        | [Function App](./modules/function-app/README.md)               | `"github.com/coc-buml/buml-infrastructure-modules/modules/functions-app"`       |
 | static-website      | [Static Website](./modules/static-website/README.md)           | `"github.com/coc-buml/buml-infrastructure-modules/modules/static-website"`      |
 | storage-account     | [Storage Account](./modules/storage-account/README.md)         | `"github.com/coc-buml/buml-infrastructure-modules/modules/storage-account"`     |
+| log-analytics       | [Log Analytics](./modules/log-analytics/README.md)             | `"github.com/coc-buml/buml-infrastructure-modules/modules/log-analytics"`       |
 
 # Generate Documentation
 

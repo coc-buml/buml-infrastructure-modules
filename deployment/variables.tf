@@ -8,7 +8,7 @@
 
 variable location {
   description = "azure location to deploy resources"
-  default     = "West Europe"
+  default     = "westeurope"
 }
 
 # variable "storage_account_name" {
