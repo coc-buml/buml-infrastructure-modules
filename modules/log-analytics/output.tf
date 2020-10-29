@@ -5,5 +5,5 @@ output "log_analytic_primary_key" {
 
 output "log_analytic_workspace_id" {
   description = "The Workspace (or Customer) ID for the Log Analytics Workspace."
-  value = azurerm_log_analytics_workspace.core.workspace_id
+  value = azurerm_log_analytics_workspace.core.id
 }

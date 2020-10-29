@@ -43,24 +43,28 @@ module "network" {
   }
 
 }
-# vnet audit module
-module "vnet_audit" {
-  depends_on                  = [azurerm_resource_group.main]
-  source                      = "../modules/log-analytics"
-  diagnostic_name             = "devbumlvnetaudit"
+# vnet audit
+resource "azurerm_monitor_diagnostic_setting" "core" {
+  depends_on                  = [module.network,module.log_analytics]
+  name                        = "devbumlvnetaudit"
   target_resource_id          = module.network.vnet_id
-  log_analytics_workspace_id  = module.log_analytics.log_analytics_workspace_id
-
-  log = {
-    environment = "dev"
-    costcenter  = "it"
+  log_analytics_workspace_id  = module.log_analytics.log_analytic_workspace_id
+  log  {
+    category = "VMProtectionAlerts"
+    enabled  = true
   }
-  metric = {
-    environment = "dev"
-    costcenter  = "it"
+  metric  {
+    category = "AllMetrics"
+
+    retention_policy {
+      enabled = false
+    }
   }
 
 }
+  
+
+
 
 # Static Website
 module "static_website" {
@@ -108,9 +112,6 @@ module "storage_account_function" {
   }
 
 }
-
-
-
 
 # Application insight module
 module "application_insight" {

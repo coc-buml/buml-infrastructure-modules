@@ -11,6 +11,7 @@
 | static-website      | [Static Website](./modules/static-website/README.md)           | `"github.com/coc-buml/buml-infrastructure-modules/modules/static-website"`      |
 | storage-account     | [Storage Account](./modules/storage-account/README.md)         | `"github.com/coc-buml/buml-infrastructure-modules/modules/storage-account"`     |
 | log-analytics       | [Log Analytics](./modules/log-analytics/README.md)             | `"github.com/coc-buml/buml-infrastructure-modules/modules/log-analytics"`       |
+| audit               | [Audits](./modules/audit/main.tf)                              | `no module because of its unique attribute for each ressource`                  |
 
 # Generate Documentation
 
