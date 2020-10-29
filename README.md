@@ -4,13 +4,13 @@
 
 | Service             | Documentation                                                  | Module-URL                                                                      |
 | ------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| VNET                | [vnet](./modules/vnet/README.md)                               | `"github.com/coc-buml/buml-infrastructure-modules/modules/vnet"`                |
-| App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `"github.com/coc-buml/buml-infrastructure-modules/modules/app-service-plan"`    |
-| application-insight | [Application Insight](./modules/application-insight/README.md) | `"github.com/coc-buml/buml-infrastructure-modules/modules/application-insight"` |
-| function-app        | [Function App](./modules/function-app/README.md)               | `"github.com/coc-buml/buml-infrastructure-modules/modules/functions-app"`       |
-| static-website      | [Static Website](./modules/static-website/README.md)           | `"github.com/coc-buml/buml-infrastructure-modules/modules/static-website"`      |
-| storage-account     | [Storage Account](./modules/storage-account/README.md)         | `"github.com/coc-buml/buml-infrastructure-modules/modules/storage-account"`     |
-| log-analytics       | [Log Analytics](./modules/log-analytics/README.md)             | `"github.com/coc-buml/buml-infrastructure-modules/modules/log-analytics"`       |
+| VNET                | [vnet](./modules/vnet/README.md)                               | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/vnet"`                |
+| App Service Plan    | [App Service Plan ](./modules/app-service-plan/README.md)      | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/app-service-plan"`    |
+| application-insight | [Application Insight](./modules/application-insight/README.md) | `""git@github.com:coc-buml/buml-infrastructure-modules.git//modules/application-insight"` |
+| function-app        | [Function App](./modules/function-app/README.md)               | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/functions-app"`       |
+| static-website      | [Static Website](./modules/static-website/README.md)           | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/static-website"`      |
+| storage-account     | [Storage Account](./modules/storage-account/README.md)         | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/storage-account"`     |
+| log-analytics       | [Log Analytics](./modules/log-analytics/README.md)             | `"git@github.com:coc-buml/buml-infrastructure-modules.git//modules/log-analytics"`       |
 | audit               | [Audits](./modules/audit/main.tf)                              | `no module because of its unique attribute for each ressource`                  |
 
 # Generate Documentation
