@@ -44,23 +44,12 @@ module "network" {
 
 }
 # vnet audit
-resource "azurerm_monitor_diagnostic_setting" "core" {
+module "vnet_diagnostic" {
   depends_on                  = [module.network,module.log_analytics]
-  name                        = "devbumlvnetaudit"
+  source                      = "../modules/diagnostic-audits"
+  audit_name                  = "devbumlvnetaudit"
   target_resource_id          = module.network.vnet_id
   log_analytics_workspace_id  = module.log_analytics.log_analytic_workspace_id
-  log  {
-    category = "VMProtectionAlerts"
-    enabled  = true
-  }
-  metric  {
-    category = "AllMetrics"
-
-    retention_policy {
-      enabled = false
-    }
-  }
-
 }
   
 
@@ -157,4 +146,26 @@ module "azure_function" {
 
 
 
+# api management resource
+module "api_management" {
+  depends_on              = [azurerm_resource_group.main,module.application_insight]
+  source                  = "../modules/api-management"
+  apim_name               = "bumldevapim"
+  api_name                = "bumldevapplication"
+  api_path                = "application"
+  resource_group_name     = module.naming.resource_group.name
+  location                = var.location
+  publisher_name          = "Philipp Schmid"
+  publisher_email         = "Philipp.Schmid@codecamp-n.com"
+  application_insights_instrumentation_key = module.application_insight.insight_instrumentation_key
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+
+}
+
+
+
+# api management Audit
 
