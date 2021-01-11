@@ -13,6 +13,7 @@
 | log-analytics       | [Log Analytics](./modules/log-analytics/README.md)             | `"git@github.com/coc-buml/buml-infrastructure-modules.git//modules/log-analytics"`        |
 | diagnostic-audits   | [Diagnostic Audits](./modules/diagnostic-audits/README.md)     | `"git@github.com/coc-buml/buml-infrastructure-modules.git//modules/diagnostic-audits"`    |
 | api-management      | [Api Management](./modules/api-management/README.md)           | `"git@github.com/coc-buml/buml-infrastructure-modules.git//modules/api-management"`       |
+| key-vault      | [Key Vault](./modules/key-vault/README.md)           | `"git@github.com/coc-buml/buml-infrastructure-modules.git//modules/key-vault"`       |
 
 # Generate Documentation
 

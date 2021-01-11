@@ -165,7 +165,16 @@ module "api_management" {
 
 }
 
+# Key Vault
+module "key-vault" {
+  depends_on              = [azurerm_resource_group.main]
+  source                  = "../modules/key-vault"
+  resource_group_name     = module.naming.resource_group.name
+  location                = var.location
+  key_vault_name          = "buml-module-test-vault"
 
-
-# api management Audit
-
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+}
