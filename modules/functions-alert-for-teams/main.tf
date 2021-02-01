@@ -203,7 +203,7 @@ resource "azurerm_template_deployment" "logic_app" {
   "outputs": {
    "logicAppUrl": {
       "type": "string",
-      "value": "[listCallbackURL(concat(resourceId('Microsoft.Logic/workflows/', '${var.name}-alert-notification'), '/triggers/manual'), '2016-06-01').value]"
+      "value": "[listCallbackURL(concat(resourceId('Microsoft.Logic/workflows/', '${var.name}-alert-notification'), '/triggers/request'), '2016-06-01').value]"
    },
     "resourceId": {
         "type": "string",
