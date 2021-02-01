@@ -12,6 +12,11 @@ variable "resources_to_monitor_ids" {
   type        = list(string)
 }
 
+variable "location" {
+  description = "location of the service"
+  type        = string
+}
+
 # variable "tags" {
 #   description = "The tags to associate with your network and subnets."
 #   type        = map(string)
