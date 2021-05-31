@@ -63,3 +63,12 @@ variable "vnet_name" {
   description = "The name of vnet created"
   type        = string
 }
+
+variable "cors" {
+  description = "CORS settings for the function app"
+  type = object({
+    allowed_origins = list(string)
+    support_credentials = bool
+  })
+  default = null
+}
