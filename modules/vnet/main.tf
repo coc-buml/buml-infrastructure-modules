@@ -17,13 +17,13 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   service_endpoints    = var.service_endpoints
   delegation {
-      name = "delegation"
-      service_delegation {
-          actions = [
-                "Microsoft.Network/virtualNetworks/subnets/action",
-            ]
-          name    = "Microsoft.Web/serverFarms"
-        }
-    }
+    name = "delegation"
+    service_delegation {
+        actions = [
+              "Microsoft.Network/virtualNetworks/subnets/action",
+          ]
+        name    = "Microsoft.Web/serverFarms"
+      }
   }
+}
 
