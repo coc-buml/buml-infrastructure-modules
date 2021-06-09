@@ -215,3 +215,32 @@ DEPLOY
 
     deployment_mode     = "Incremental"
 }
+
+
+
+resource "azurerm_monitor_diagnostic_setting" "logic_app_alert_teams" {
+    name                        = "${var.name}-alert-notification-audit"
+    target_resource_id          = data.azurerm_logic_app_workflow.outputs.id
+    log_analytics_workspace_id  = var.log_analytics_workspace_id
+
+    log {
+      category = "WorkflowRuntime"
+      enabled  = true
+
+      retention_policy {
+          days    = 0 
+          enabled = false
+     }
+   }
+   metric  {
+     category = "AllMetrics"
+     enabled  = true
+
+     retention_policy {
+       days    = 0 
+       enabled = false
+     }
+   }
+
+ }
+

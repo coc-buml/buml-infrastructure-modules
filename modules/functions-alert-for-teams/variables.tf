@@ -12,6 +12,11 @@ variable "resources_to_monitor_ids" {
   type        = list(string)
 }
 
+variable "log_analytics_workspace_id" {
+  description = "the id of the log analytics workspace"
+  type        = string
+}
+
 variable "location" {
   description = "location of the service"
   type        = string
